@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post in detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="q-bar">
+        <a href="/posts" class="q-logo">Quora</a>
+    </header>
+
+    <main class="q-main q-narrow">
+        <a href="/posts" class="q-back">&larr; All posts</a>
+        <article class="q-post q-post-lg">
+            <div class="q-author">
+                <span class="q-avatar" aria-hidden="true"><%= post.username.charAt(0).toUpperCase() %></span>
+                <span class="q-user">@<%= post.username %></span>
+            </div>
+            <p class="q-content"><%= post.content %></p>
+            <p class="q-id">Post id: <code><%= post.id %></code></p>
+            <div class="q-actions">
+                <a href="/posts/<%= post.id %>/edit" class="q-link">Edit</a>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

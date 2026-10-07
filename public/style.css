@@ -1,0 +1,263 @@
+/* Quora Posts — RESTful posts board on Express + EJS. */
+
+:root {
+  --q-red: #b92b27;
+  --q-red-dark: #9a2420;
+  --q-ink: #282829;
+  --q-muted: #636466;
+  --q-line: #dee0e1;
+  --q-page: #f1f2f2;
+  --q-card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--q-ink);
+  background: var(--q-page);
+  min-height: 100vh;
+}
+
+/* ---------- Bar ---------- */
+.q-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--q-card);
+  border-bottom: 1px solid var(--q-line);
+}
+
+.q-logo {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  color: var(--q-red);
+  text-decoration: none;
+  margin: 0;
+}
+
+/* ---------- Buttons and links ---------- */
+.q-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  background: var(--q-red);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.q-btn:hover {
+  background: var(--q-red-dark);
+}
+
+.q-btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.q-btn-full {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.q-link {
+  border: 0;
+  background: none;
+  padding: 0.25rem 0;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--q-muted);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.q-link:hover {
+  color: var(--q-ink);
+  text-decoration: underline;
+}
+
+.q-link-danger:hover {
+  color: var(--q-red);
+}
+
+/* ---------- Home ---------- */
+.q-home {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(185, 43, 39, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(185, 43, 39, 0.06), transparent 45%),
+    var(--q-page);
+}
+
+.q-hero {
+  max-width: 34rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.q-hero .q-logo {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.q-hero-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.q-hero-sub {
+  color: var(--q-muted);
+  margin: 0 0 1.75rem;
+}
+
+/* ---------- Feed ---------- */
+.q-main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 4rem;
+}
+
+.q-narrow {
+  max-width: 34rem;
+}
+
+.q-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 1.25rem;
+}
+
+.q-post {
+  background: var(--q-card);
+  border: 1px solid var(--q-line);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.q-post-lg {
+  padding: 1.5rem;
+}
+
+.q-author {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.q-avatar {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #f3e4e3;
+  color: var(--q-red);
+  font-weight: 600;
+}
+
+.q-user {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.q-content {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 0.9rem;
+}
+
+.q-post-lg .q-content {
+  font-size: 1.25rem;
+}
+
+.q-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--q-line);
+}
+
+.q-actions form {
+  margin: 0;
+}
+
+.q-id {
+  color: var(--q-muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.9rem;
+}
+
+.q-id code {
+  font-size: 0.8rem;
+}
+
+.q-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--q-muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.q-back:hover {
+  color: var(--q-ink);
+}
+
+.q-empty {
+  color: var(--q-muted);
+  text-align: center;
+}
+
+/* ---------- Forms ---------- */
+.q-card {
+  background: var(--q-card);
+  border: 1px solid var(--q-line);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.q-label {
+  display: block;
+  margin: 1rem 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.q-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--q-line);
+  border-radius: 8px;
+  font: inherit;
+  color: inherit;
+  resize: vertical;
+}
+
+.q-input:focus {
+  outline: none;
+  border-color: var(--q-red);
+  box-shadow: 0 0 0 3px rgba(185, 43, 39, 0.12);
+}

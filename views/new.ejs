@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create A New Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="q-bar">
+        <a href="/posts" class="q-logo">Quora</a>
+    </header>
+
+    <main class="q-main q-narrow">
+        <form method="post" action="/posts" class="q-card">
+            <h1 class="q-title">Create a post</h1>
+            <label class="q-label" for="username">Username</label>
+            <input class="q-input" id="username" name="username" placeholder="Enter username" required>
+
+            <label class="q-label" for="content">Post</label>
+            <textarea class="q-input" id="content" name="content" rows="5" placeholder="Write your post" required></textarea>
+
+            <button class="q-btn q-btn-full">Submit post</button>
+        </form>
+    </main>
+</body>
+</html>
